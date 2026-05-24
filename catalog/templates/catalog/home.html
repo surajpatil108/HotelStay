@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Our Luxury Hotel - Rooms</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f4f4f4; }
+        nav { background: #333; padding: 10px; margin-bottom: 20px; }
+        nav a { color: white; margin-right: 15px; text-decoration: none; }
+        .room-container { display: flex; gap: 20px; flex-wrap: wrap; }
+        .room-card { background: white; border-radius: 8px; padding: 15px; width: 300px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .room-card img { width: 100%; height: 200px; object-fit: cover; border-radius: 4px; }
+        .price { color: #27ae60; font-weight: bold; font-size: 1.2em; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="{% url 'home' %}">Home / Rooms</a>
+        <a href="{% url 'contact' %}">Contact Us</a>
+    </nav>
+
+    <h1>Our Room Categories</h1>
+    <div class="room-container">
+        {% for room in categories %}
+            <div class="room-card">
+                {% if room.image %}
+                    <img src="{{ room.image.url }}" alt="{{ room.get_name_display }}">
+                {% endif %}
+                <h2>{{ room.get_name_display }}</h2>
+                <p>{{ room.description }}</p>
+                <p><strong>Capacity:</strong> Up to {{ room.capacity }} guests</p>
+                <p class="price">${{ room.price_per_night }} / Night</p>
+            </div>
+        {% empty %}
+            <p>No rooms available at the moment. Please check back later!</p>
+        {% endfor %}
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Us</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f4f4f4; }
+        nav { background: #333; padding: 10px; margin-bottom: 20px; }
+        nav a { color: white; margin-right: 15px; text-decoration: none; }
+        .contact-box { background: white; padding: 30px; max-width: 500px; margin: 0 auto; border-radius: 8px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="{% url 'home' %}">Home / Rooms</a>
+        <a href="{% url 'contact' %}">Contact Us</a>
+    </nav>
+
+    <div class="contact-box">
+        <h1>Contact Us</h1>
+        <p>Have questions or want to make a reservation? Reach out to us directly!</p>
+        <hr>
+        <p><strong>📍 Address:</strong> 123 Paradise Beach Road, Goa, India</p>
+        <p><strong>📞 Phone:</strong> +91 98765 43210</p>
+        <p><strong>✉️ Email:</strong> stay@luxuryhotel.com</p>
+    </div>
+
+</body>
+</html>
