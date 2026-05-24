@@ -1,0 +1,350 @@
+/* static/css/style.css */
+
+/* Global Reset & Typography */
+:root {
+    --primary-color: #1a365d;    /* Deep Navy */
+    --accent-color: #c5a880;     /* Elegant Gold */
+    --text-dark: #2d3748;        /* Charcoal text */
+    --bg-light: #f7fafc;         /* Soft off-white */
+    --white: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: var(--primary-color);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+nav .logo {
+    color: var(--accent-color);
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+nav .nav-links a {
+    color: #e2e8f0;
+    margin-left: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+nav .nav-links a:hover {
+    color: var(--accent-color);
+}
+
+/* Main Container & Header */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.subtitle {
+    text-align: center;
+    color: #718096;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+/* Responsive Room Grid */
+.room-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+/* Room Card Styling */
+.room-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.room-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Image / Placeholder Styling */
+.room-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 240px;
+}
+
+.room-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.no-image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: #edf2f7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #a0aec0;
+    font-size: 0.9rem;
+}
+
+.no-image-placeholder svg {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
+    fill: currentColor;
+}
+
+/* Card Body Content */
+.room-details {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.room-details h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.room-details p {
+    color: #4a5568;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.room-specs {
+    font-size: 0.85rem;
+    color: #718096;
+    border-top: 1px solid #edf2f7;
+    padding-top: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Pricing & Action Area */
+.room-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+}
+
+.price {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+.price span {
+    font-size: 0.85rem;
+    color: #718096;
+    font-weight: 400;
+}
+
+.view-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.view-btn:hover {
+    background-color: #2c5282;
+}
+
+/* Empty State Notification */
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px;
+    background: var(--white);
+    border-radius: 12px;
+    color: #718096;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+/* Contact Card specifics */
+.contact-box {
+    background: var(--white);
+    padding: 40px;
+    max-width: 550px;
+    margin: 40px auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+.contact-box h1 {
+    text-align: left;
+    margin-top: 0;
+}
+.contact-item {
+    margin: 20px 0;
+    font-size: 1.1rem;
+}
+
+/* ==================== NEW SECTIONAL LAYOUTS ==================== */
+
+/* Smooth Scrolling effect across the page anchor points */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Section Spacing Utilities */
+.section-padding {
+    padding: 80px 0;
+}
+.bg-alt {
+    background-color: #edf2f7; /* Alternating section colors to split content */
+}
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+.section-subtitle {
+    text-align: center;
+    color: #718096;
+    margin-bottom: 50px;
+    font-size: 1.05rem;
+}
+
+/* Hero Banner Layout */
+.hero-section {
+    background: linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.7)), 
+                url('https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1500&q=80') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--white);
+    padding: 0 20px;
+}
+.hero-content h1 {
+    color: var(--white);
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.hero-content p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    color: #e2e8f0;
+}
+.cta-btn {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    transition: transform 0.2s, background-color 0.2s;
+    display: inline-block;
+}
+.cta-btn:hover {
+    transform: scale(1.05);
+    background-color: #b5966d;
+}
+
+/* Amenities Layout */
+.amenities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+}
+.amenity-card {
+    background: var(--white);
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+.amenity-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+.amenity-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+.amenity-card p {
+    color: #718096;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* Testimonials Layout */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+    gap: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+.testimonial-card {
+    background: var(--white);
+    padding: 30px;
+    border-left: 4px solid var(--accent-color);
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+.quote {
+    font-style: italic;
+    color: #4a5568;
+    font-size: 1.05rem;
+}
+.guest-name {
+    margin: 15px 0 0 0;
+    color: var(--primary-color);
+}
+
+/* Footer layout */
+footer {
+    background-color: var(--primary-color);
+    color: #a0aec0;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.9rem;
+    border-top: 1px solid #2d3748;
+}
