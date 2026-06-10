@@ -1,0 +1,45 @@
+/* ==================== ROOM MULTI-IMAGE GALLERY ==================== */
+
+.room-gallery-wrapper {
+    margin-bottom: 20px;
+}
+
+.gallery-title {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #718096;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.gallery-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.gallery-thumb {
+    width: 65px;
+    height: 50px;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    border: 2px solid #edf2f7;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.gallery-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Light pop dynamic response on hovering thumbnails */
+.gallery-thumb:hover {
+    transform: scale(1.1);
+    border-color: var(--accent-color);
+    cursor: pointer;
+}

@@ -1,0 +1,145 @@
+/* ==================== PREMIUM HORIZONTAL ROOM CARDS ==================== */
+
+/* Fixed: Changed from grid to flex to allow horizontal alignment */
+.room-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; 
+    margin-top: 20px;
+}
+
+/* Core horizontal card structure */
+.room-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    display: flex; 
+    flex-direction: row;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    align-items: stretch; /* Forces left and right columns to perfectly match heights */
+}
+
+.room-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(26, 54, 147, 0.08);
+}
+
+/* Image wrapper setup */
+.room-image-wrapper {
+    position: relative;
+    width: 35%; 
+    flex-shrink: 0; 
+    overflow: hidden;
+}
+
+/* Fixed: 100% height + block display removes any micro-gaps at the bottom edge */
+.room-card img {
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block; 
+}
+
+.no-image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: #edf2f7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #a0aec0;
+}
+
+.no-image-placeholder svg {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 10px;
+    fill: currentColor;
+}
+
+/* Right-side Text block layout styling */
+.room-details {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+    justify-content: space-between;
+}
+
+.room-details h2 {
+    margin: 0 0 12px 0;
+    font-size: 1.6rem;
+    color: var(--primary-color);
+}
+
+.room-details p {
+    color: #4a5568;
+    font-size: 1rem;
+    margin: 0 0 20px 0;
+    line-height: 1.6;
+}
+
+/* Specifications / Badges Row */
+.room-specs {
+    font-size: 0.9rem;
+    color: #718096;
+    border-top: 1px solid #edf2f7;
+    padding-top: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* Pricing and Action Button Row */
+.room-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto; 
+    padding-top: 8px;
+    border-top: 1px solid #f7fafc;
+}
+
+.price {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.price span {
+    font-size: 0.9rem;
+    color: #718096;
+    font-weight: 400;
+}
+
+.view-btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.view-btn:hover {
+    background-color: #2c5282;
+}
+
+/* Responsive breakpoint for small mobile views */
+@media (max-width: 768px) {
+    .room-card {
+        flex-direction: column;
+    }
+    .room-image-wrapper {
+        width: 100%;
+        height: 240px;
+    }
+}

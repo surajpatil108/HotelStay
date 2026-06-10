@@ -5,6 +5,12 @@
 <head>
     <title>Our Luxury Hotel - Rooms</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/rooms.css' %}">
+    <link rel="stylesheet" href="{% static 'css/room_gallery.css' %}">
+    <link rel="stylesheet" href="{% static 'css/testimonial_button.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/amenities.css' %}">
+
 </head>
 
 <body>
@@ -90,11 +96,29 @@
                             👤 Accommodates up to {{ room.capacity }} guests
                         </div>
 
+                        {% if room.gallery_images.all %}
+                        <div class="room-gallery-wrapper">
+                            <span class="gallery-title">Room Gallery:</span>
+                            <div class="gallery-grid">
+                                {% for gallery in room.gallery_images.all %}
+                                <div class="gallery-thumb">
+                                    <a href="{{ gallery.image.url }}" class="lightbox-trigger"
+                                        data-caption="{{ room.get_name_display }}">
+                                        <img src="{{ gallery.image.url }}" alt="Thumbnail">
+                                    </a>
+                                </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                        {% endif %}
+
                         <div class="room-footer">
                             <div class="price">{{ room.price_per_night }} Rs<span>/night</span></div>
                             <a href="{% url 'contact' %}" class="view-btn">Inquire Now</a>
                         </div>
                     </div>
+
                 </div>
                 {% empty %}
                 <div class="empty-state">
@@ -105,29 +129,85 @@
             </div>
         </div>
     </section>
+
     <section id="testimonials" class="section-padding bg-alt">
         <div class="container">
             <h2 class="section-title">What Our Guests Say</h2>
             <p class="section-subtitle">Real feedback from travelers who experienced the Grand Stay standard.</p>
 
             <div class="testimonials-grid">
+                {% for t in testimonials %}
                 <div class="testimonial-card">
-                    <p class="quote">"An unforgettable experience. The deluxe suite was breathtakingly clean, and the
-                        staff treated us like royalty. Will absolutely return!"</p>
+                    <p class="quote">"{{ t.quote }}"</p>
+                    <h4 class="guest-name">- {{ t.guest_name }}, {{ t.location }} <span
+                            style="font-size:0.8rem; font-weight:normal; color:#a0aec0;">({{ t.get_room_type_display
+                            }})</span></h4>
+                </div>
+                {% empty %}
+                <div class="testimonial-card">
+                    <p class="quote">"An unforgettable experience. The deluxe suite was breathtakingly clean!"</p>
                     <h4 class="guest-name">- Sarah Jenkins, New York</h4>
                 </div>
-                <div class="testimonial-card">
-                    <p class="quote">"Having ultra-fast Wi-Fi right on the beach property while sipping drinks by the
-                        infinity pool made my work-cation absolutely flawless."</p>
-                    <h4 class="guest-name">- David Chen, Singapore</h4>
-                </div>
+                {% endfor %}
             </div>
+
+            <div class="testimonial-action">
+                <a href="{% url 'add_testimonial' %}" class="review-btn">✍️ Add Testimonial</a>
+            </div>
+
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Grand Stay Hotel. All rights reserved. Built with elegance.</p>
+
+
+    <footer class="main-footer">
+        <div class="footer-container">
+
+            <div class="footer-col">
+                <h3 class="footer-logo">GRAND STAY HOTEL</h3>
+                <p class="footer-about">Experience world-class hospitality, serene landscapes, and unmatched comfort
+                    tailored perfectly to your stay.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#amenities">Amenities</a></li>
+                    <li><a href="#rooms">Our Rooms</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="{% url 'contact' %}">Contact Page</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col" id="footer-contact">
+                <h4>Contact Us</h4>
+                <ul class="footer-contact-info">
+                    <li>📍 <span>123 Paradise Beach Road, Goa, India</span></li>
+                    <li>📞 <span>+91 98765 43210</span></li>
+                    <li>✉️ <span>stay@luxuryhotel.com</span></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Reception Desk</h4>
+                <p class="footer-text">Our front desk is available 24/7 to assist you with inquiries, custom check-ins,
+                    and local tour updates.</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Grand Stay Hotel. All rights reserved. Built with elegance.</p>
+        </div>
     </footer>
+
+    <div id="galleryLightbox" class="lightbox-overlay">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightboxImg" src="" alt="Enlarged room view">
+        <div id="lightboxCaption" class="lightbox-caption"></div>
+    </div>
+
 
 </body>
 

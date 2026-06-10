@@ -1,0 +1,53 @@
+/* ==================== PREMIUM TESTIMONIAL CTA BUTTON ==================== */
+
+.testimonial-action {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.review-btn {
+    /* Layout & Alignment */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Spacing between the emoji and text */
+    
+    /* Typography */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    
+    /* Coloring & Borders */
+    color: var(--white);
+    background-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    padding: 14px 36px;
+    border-radius: 50px; /* Perfectly pill-shaped */
+    
+    /* Smooth Transitions */
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(26, 54, 93, 0.15);
+    transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Elegant Floating Hover State */
+.review-btn:hover {
+    background-color: transparent;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    transform: translateY(-4px); /* Clean upward float */
+    box-shadow: 0 12px 24px rgba(26, 54, 147, 0.2); /* Enhanced soft drop shadow */
+}
+
+/* Subtle shrink press effect when clicked */
+.review-btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 12px rgba(26, 54, 147, 0.15);
+}

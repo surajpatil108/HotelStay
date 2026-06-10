@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your Review - Grand Stay Hotel</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">GRAND STAY HOTEL</div>
+        <div class="nav-links">
+            <a href="{% url 'home' %}">Home & Rooms</a>
+            <a href="{% url 'contact' %}">Contact Us</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="contact-box" style="max-width: 600px;">
+            <h1>Share Your Experience</h1>
+            <p style="color: #718096; margin-bottom: 30px;">We value your feedback! Please tell us about your recent stay with us.</p>
+            
+            <form method="POST" action="{% url 'add_testimonial' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="guestName">Your Name</label>
+                    <input type="text" id="guestName" name="name" required placeholder="e.g., John Doe">
+                </div>
+                
+                <div class="form-group">
+                    <label for="guestLocation">Your City / Country</label>
+                    <input type="text" id="guestLocation" name="location" required placeholder="e.g., Mumbai, India">
+                </div>
+                
+                <div class="form-group">
+                    <label for="roomType">Room Category Stayed In</label>
+                    <select id="roomType" name="room_type">
+                        <option value="AC">AC Room</option>
+                        <option value="NON_AC">Non-AC Room</option>
+                        <option value="DELUXE">Deluxe Suite</option>
+                        <option value="LUXURY">Luxury Premium</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reviewText">Your Review</label>
+                    <textarea id="reviewText" name="review" rows="6" required placeholder="Describe your stay, the service, and the amenities..."></textarea>
+                </div>
+                
+                <div style="display: flex; gap: 15px; margin-top: 10px;">
+                    <button type="submit" class="submit-review-btn">Submit Testimonial</button>
+                    <a href="{% url 'home' %}" class="view-btn" style="background-color: #e2e8f0; color: #4a5568; text-align: center; line-height: 24px;">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
