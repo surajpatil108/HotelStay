@@ -43,3 +43,63 @@
     border-color: var(--accent-color);
     cursor: pointer;
 }
+
+
+/* ==================== LIGHTBOX POPUP ==================== */
+
+/* Fullscreen background overlay */
+.lightbox-overlay {
+    display: none;        /* Hidden by default */
+    position: fixed;      /* Pinned to the screen viewport */
+    z-index: 10000;       /* Sits on top of header/navigation */
+    left: 0;
+    top: 0;
+    width: 100vw;         /* Full window width */
+    height: 100vh;        /* Full window height */
+    background-color: rgba(0, 0, 0, 0.85); /* Dark transparent backdrop */
+    align-items: center;  /* Centers the large image vertically */
+    justify-content: center; /* Centers the large image horizontally */
+    flex-direction: column;
+}
+
+/* Class triggered by JavaScript to show the popup */
+.lightbox-overlay.active {
+    display: flex;        
+}
+
+/* The Increased Size Image */
+.lightbox-content {
+    max-width: 85%;       /* Uses up to 85% of screen width */
+    max-height: 80%;      /* Uses up to 80% of screen height */
+    object-fit: contain;  /* Maintains image aspect ratio without distorting */
+    border: 4px solid #fff;
+    border-radius: 4px;
+    box-shadow: 0px 5px 30px rgba(0,0,0,0.5);
+    animation: zoomInEffect 0.25s ease-out; /* Smooth pop-in animation */
+}
+
+/* Close 'X' Button */
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 50px;
+    font-weight: 300;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* Caption style underneath image */
+.lightbox-caption {
+    margin-top: 15px;
+    color: #fff;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+}
+
+/* Zoom effect animation */
+@keyframes zoomInEffect {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}

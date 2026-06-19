@@ -4,12 +4,14 @@
 
 <head>
     <title>Our Luxury Hotel - Rooms</title>
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/rooms.css' %}">
     <link rel="stylesheet" href="{% static 'css/room_gallery.css' %}">
     <link rel="stylesheet" href="{% static 'css/testimonial_button.css' %}">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     <link rel="stylesheet" href="{% static 'css/amenities.css' %}">
+    <script src="{% static 'js/image_popup.js' %}"></script>
 
 </head>
 
@@ -139,9 +141,10 @@
                 {% for t in testimonials %}
                 <div class="testimonial-card">
                     <p class="quote">"{{ t.quote }}"</p>
-                    <h4 class="guest-name">- {{ t.guest_name }}, {{ t.location }} <span
-                            style="font-size:0.8rem; font-weight:normal; color:#a0aec0;">({{ t.get_room_type_display
-                            }})</span></h4>
+                    <h4 class="guest-name">- {{ t.guest_name }}, {{ t.location }}
+                        <span style="font-size:0.8rem; font-weight:normal; color:#a0aec0;">({{ t.get_room_type_display
+                            }})</span>
+                    </h4>
                 </div>
                 {% empty %}
                 <div class="testimonial-card">
